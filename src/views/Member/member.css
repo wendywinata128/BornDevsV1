@@ -1,0 +1,383 @@
+#navBar {
+  width: 100%;
+  height: 10vh;
+  display: grid;
+  grid-template-columns: 10% 1fr 1fr 10%;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 1%;
+  border-bottom-right-radius: 1%;
+}
+
+#navBar #logo {
+  font-family: "Courier New", Courier, monospace;
+  grid-column: 2/3;
+  text-align: start;
+  font-size: 32px;
+  font-weight: 990;
+  color: rgb(44, 8, 145);
+  letter-spacing: -3px;
+}
+
+#navBar .menuBar {
+  justify-self: end;
+  padding: 10px;
+}
+
+#navBar .menuBar:hover {
+  cursor: pointer;
+}
+
+.member-content {
+  width: 90%;
+  min-height: 90vh;
+  padding: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.member-content .header {
+  width: 90%;
+  height: 260px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.member-content .header .card {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-grow: 1;
+  padding: 30px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.member-content .header img {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.member-content .header .profil-description > h6 {
+  font-style: italic;
+}
+
+.member-content .header h7 {
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.circular-layout {
+  margin-top: 20px;
+  display: flex;
+}
+
+.circular-div {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: cornflowerblue;
+  margin-right: 15px;
+}
+
+.circular-div .details {
+  text-align: center;
+}
+
+.circular-div.c-1 {
+  background-color: #b3dee2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-div.c-2 {
+  background-color: #dbf9b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-div.c-3 {
+  background-color: #9ba2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.member-content .header .careers {
+  display: flex;
+  flex-grow: 1;
+  padding: 30px;
+  height: 100%;
+  flex-direction: column;
+}
+
+.careers h4 {
+  background-color: pink;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.careers h5 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.careers .container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.careers .container .progress {
+  width: 60%;
+  position: absolute;
+  height: 4px;
+  background-color: blue;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 0;
+}
+
+.container::before {
+  content: "";
+  width: 90%;
+  position: absolute;
+  height: 4px;
+  background-color: grey;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.circle-group {
+  z-index: 2;
+}
+
+.careers .container .circle {
+  width: 60px;
+  height: 60px;
+  background-color: azure;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid grey 1px;
+  border-radius: 50%;
+}
+
+.container .circle.active {
+  border: 2px solid blue;
+}
+
+.member-content .content-body {
+  width: 90%;
+  height: 150px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.card {
+  height: 100%;
+  flex-basis: 24%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.c-1 {
+  background: #abebd2;
+}
+
+.card.c-2 {
+  background: wheat;
+}
+
+.card.c-3 {
+  background: #ffe4fa;
+}
+
+.card.c-4 {
+  background: #555358;
+}
+
+.member-content .courses {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 70px;
+  padding-bottom: 30px;
+}
+
+.member-content .header-courses {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 15px;
+  text-align: center;
+  padding: 10px;
+  background-color: pink;
+}
+
+.member-content .courses .courses-content {
+  height: 250px;
+  width: 90%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  margin: 0 auto;
+}
+
+.courses .courses-content .card {
+  height: 250px;
+  flex-basis: 200px;
+  flex-shrink: 0;
+  margin-right: 30px;
+  background: wheat;
+}
+
+.courses-content img {
+  width: 100px;
+  height: 100px;
+}
+
+.scrollLayout-left {
+  position: absolute;
+  left: 0;
+  z-index: 3;
+  width: 4%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconLeft {
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+  border: solid grey;
+  border-width: 0 5px 5px 0;
+  transform: rotate(135deg);
+}
+
+.iconLeft:hover {
+  border-color: black;
+  cursor: pointer;
+}
+
+.scrollLayout-right {
+  position: absolute;
+  right: 0;
+  width: 4%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconRight {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+  border: solid grey;
+  border-width: 0 5px 5px 0;
+  transform: rotate(-45deg);
+}
+
+.iconRight:hover {
+  border-color: black;
+  cursor: pointer;
+}
+
+.member-content .continue-courses {
+  width: 90%;
+  margin: 0 auto;
+  min-height: 300px;
+}
+
+.continue-courses .card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.continue-courses .card .header-continue {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  background-color: pink;
+  color: black;
+}
+
+.continue-courses .content-continue {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.continue-courses .content-continue img {
+  width: 120px;
+  height: 110px;
+  margin-right: 10px;
+}
+
+.continue-courses .content-continue .item {
+  display: flex;
+  flex-basis: 50%;
+  padding: 20px;
+}
+
+.content-continue .item .description {
+  width: 70%;
+}
+
+.content-continue .item .progress-bar {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background: whitesmoke;
+  position: relative;
+}
+
+.item .progress-bar .percent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 70%;
+  height: 100%;
+  background: wheat;
+}
+
+.item .progress-bar .percent-status {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+.item .btn {
+  float: right;
+}

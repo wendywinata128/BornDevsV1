@@ -1,0 +1,336 @@
+#navBar {
+  width: 100%;
+  height: 10vh;
+  display: grid;
+  grid-template-columns: 10% 1fr 1fr 1fr 10%;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 1%;
+  border-bottom-right-radius: 1%;
+}
+
+#navBar #logo {
+  font-family: "Courier New", Courier, monospace;
+  grid-column: 3/4;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 990;
+  color: rgb(44, 8, 145);
+  letter-spacing: -3px;
+  border-bottom-style: solid;
+  width: fit-content;
+  margin: 0 auto;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
+  padding-bottom: 5px;
+}
+
+#navBar .menu {
+  grid-column: 2/3;
+  justify-self: flex-start !important;
+}
+
+#navBar .menu-contact {
+  justify-self: flex-end !important;
+}
+
+#navBar .btn-text {
+  font-size: 24px;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+#content {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  position: relative;
+  scroll-behavior: auto !important;
+}
+
+#content .slogan-content .title {
+  font-size: 72px;
+}
+
+#content .slogan-content .subtitle {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 22px;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+#content .slogan-content .member {
+  color: rgba(100, 0, 0);
+  font-size: 22px;
+  padding: 40px;
+  font-weight: 600;
+  position: absolute;
+  right: 20px;
+}
+
+#content .slogan-content .card .subtitle {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  transform: translateX(-5%);
+}
+
+.slogan {
+  width: 80%;
+  height: 80%;
+  align-self: center;
+  display: flex;
+}
+
+.slogan img {
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.slogan-content {
+  width: 80%;
+  height: 80%;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.experience {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+.experience .card {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.experience .card img {
+  z-index: 2;
+}
+
+.experience .card .name {
+  z-index: 2;
+  text-align: center;
+  font-weight: bolder;
+  margin-top: 15px;
+}
+
+.percent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #c6c8ee;
+  height: 50%;
+  width: 100%;
+}
+
+.section {
+  padding-top: 10vh;
+  background-color: linear-gradient(
+    90deg,
+    hsla(186, 33%, 94%, 1) 0%,
+    hsla(216, 41%, 79%, 1) 100%
+  );
+}
+
+.section .title-group {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section .title-group span {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+}
+
+.section .content {
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.section .content .card-group {
+  height: 100%;
+  flex-basis: 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section .content .card-group h3 {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.section .content .card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.section .content .card img {
+  transition: 1s;
+  transform: scale(0.8);
+}
+
+.section .content .card:hover img {
+  transform: scale(1) rotate(360deg);
+  cursor: pointer;
+}
+
+.section-2 {
+  padding-top: 20vh;
+  margin-bottom: 10vh;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding-right: 20px;
+}
+
+.section-2 .title-group {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-2 .title-group span {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+}
+
+.section-2 .content {
+  display: flex;
+  width: 90%;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  padding: 20px;
+  align-self: center;
+}
+
+.section-2 .content .card-group {
+  width: 250px;
+  height: 300px;
+  margin-right: 30px;
+  flex-shrink: 0;
+}
+
+.section-2 .card {
+  background-color: wheat;
+}
+
+.section-2 .card:hover {
+  box-shadow: 0px 0px 20px #ffd700;
+}
+
+.section-2 .card-img-top {
+  width: 120px;
+  height: 110px;
+  margin: 0 auto;
+  transition: 1.2s;
+}
+
+.section-2 .card-title {
+  text-align: center;
+}
+
+.section-2 .card:hover .card-img-top {
+  transform: rotate(360deg);
+}
+
+.scrollLeft {
+  width: 100px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-right {
+  width: 40px;
+  height: 40px;
+  border: solid grey;
+  border-width: 0 5px 5px 0;
+  transform: rotate(-45deg);
+}
+
+.icon-right:hover {
+  border-color: black;
+  cursor: pointer;
+}
+
+.scrollRight {
+  width: 100px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-left {
+  width: 40px;
+  height: 40px;
+  border: solid grey;
+  border-width: 0 5px 5px 0;
+  transform: rotate(135deg);
+}
+
+.icon-left:hover {
+  border-color: black;
+  cursor: pointer;
+}
+
+.footer {
+  height: 25vh;
+  background-color: linear-gradient(
+    90deg,
+    hsla(186, 33%, 94%, 1) 0%,
+    hsla(216, 41%, 79%, 1) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+}
+
+.footer .content {
+  height: 20vh;
+  width: 100%;
+  position: relative;
+  background-color: #729ea1;
+}
+
+.footer .title {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.footer .content .btn {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
