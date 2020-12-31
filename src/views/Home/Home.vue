@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="body-home">
     <div id="navBar">
       <a @click="scrollTo('courses')" class="btn btn-text menu">COURSES</a>
       <span id="logo">BORN DEVS</span>
@@ -294,6 +294,12 @@ export default {
 
       document.querySelectorAll(".card-group")[6].style =
         "transform:scale(1.2)";
+
+      if (window.matchMedia("(max-width:800px)").matches) {
+        this.$gsap.to(logo, 3, { width: "100%" });
+        document.querySelectorAll(".card-group")[6].style =
+          "transform:scale(1)";
+      }
     },
     animatePercent() {
       let percent = document.querySelectorAll(".percent");
@@ -322,11 +328,31 @@ export default {
       console.log(goTo);
       goTo.scrollIntoView({ behavior: "smooth" });
     },
+    animateOnScroll() {
+      let section = document.querySelector(".section");
+      let section2 = document.querySelector(".section-2");
+      window.addEventListener("scroll", () => {
+        let viewport = (window.innerHeight / 5) * 4;
+
+        if (section.getBoundingClientRect().top < viewport) {
+          section.classList.add("active");
+        } else {
+          section.classList.remove("active");
+        }
+
+        if (section2.getBoundingClientRect().top < viewport) {
+          section2.classList.add("active");
+        } else {
+          section2.classList.remove("active");
+        }
+      });
+    },
   },
   mounted() {
     this.animateHeight();
     this.scrollLeft();
     this.dialogExit();
+    this.animateOnScroll();
   },
 };
 </script>

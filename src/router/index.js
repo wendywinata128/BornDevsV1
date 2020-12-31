@@ -1,34 +1,33 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home/Home.vue'
-import Member from '../views/Member/Member.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home/Home.vue";
+import Member from "../views/Member/Member.vue";
+import Login from "../views/Login/Login.vue";
 
-import 'bootstrap/dist/css/bootstrap.css';
-
-import {gsap} from 'gsap';
-
-
-Vue.use(VueRouter)
-
-Vue.prototype.$gsap = gsap;
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path:"/member",
+    path: "/member",
     name: "member",
-    component : Member
-  }
-]
+    component: Member,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login,
+  },
+];
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: "hash",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

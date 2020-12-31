@@ -48,7 +48,9 @@
           REGISTER
         </div>
 
-        <a class="btn-member" href="#">Already have a member ?</a>
+        <router-link class="btn-member" :to="{ name: 'login' }"
+          >Already have a member ?</router-link
+        >
       </div>
     </div>
   </div>

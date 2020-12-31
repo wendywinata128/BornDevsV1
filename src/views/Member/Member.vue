@@ -2,9 +2,19 @@
   <div id="body-member">
     <div id="navBar">
       <span id="logo">MEMBER SITE</span>
-      <div class="menuBar position-relative">
-        <a href="/" class="w-100 h-100 position-absolute"></a>
-        <img src="../../assets/icon_burger.png" width="30px" />
+      <div class="menuBar">
+        <img
+          class="hamburger"
+          src="../../assets/icon_burger.png"
+          width="30px"
+          @click="showMenu"
+        />
+
+        <ul>
+          <li><router-link :to="{ path: '/' }">Home</router-link></li>
+          <li>Settings</li>
+          <li>My Project</li>
+        </ul>
       </div>
     </div>
 
@@ -97,6 +107,16 @@
       <div class="courses card">
         <div class="header-courses">
           <h4>Course</h4>
+          <div class="search">
+            <input
+              class="form-control"
+              type="text"
+              v-model="searchForm"
+              placeholder="Search..."
+              @keydown="searchCourses"
+            />
+            <font-awesome-icon icon="search" class="icon-search" />
+          </div>
         </div>
         <div class="scrollLayout-left">
           <div class="iconLeft"></div>
@@ -106,7 +126,7 @@
           <div class="iconRight"></div>
         </div>
         <div class="courses-content">
-          <div class="card" v-for="item in courses" :key="item.name">
+          <div class="card" v-for="item in searchCourses()" :key="item.name">
             <img
               class="content-img"
               :src="require('../../assets/' + item.img)"
@@ -146,6 +166,47 @@
           </div>
         </div>
       </div>
+
+      <div class="my-project">
+        <div class="layout-project">
+          <div
+            class="card"
+            v-for="item in projects"
+            :key="item.name"
+            :style="`background-image:url(${item.img});`"
+          >
+            <div class="details">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+                dicta hic dolores repellat assumenda pariatur, quisquam adipisci
+                eum aliquam, ipsa esse? Libero laudantium itaque quae dicta
+                error accusantium illo hic porro sequi vel qui vero
+                reprehenderit repellat perferendis atque ut voluptate eum, ullam
+                quasi? Quas aut repellat eligendi dolor! Nulla porro laboriosam
+                quia officiis possimus provident earum voluptas labore
+                explicabo, magnam sit vel. Error quisquam natus expedita veniam
+                excepturi, recusandae, odit cum reiciendis enim quidem a labore
+                animi explicabo vel itaque. Dicta molestiae incidunt iste eum
+                perspiciatis eveniet non ex obcaecati et atque fuga architecto,
+                maxime porro? Pariatur quas quibusdam illo accusamus, quam
+                commodi. Eos consequatur repellat animi beatae sit, accusamus
+                itaque, veniam excepturi perspiciatis debitis dolores rem quae
+                nulla nobis nostrum officiis eligendi adipisci, voluptatum
+                cumque? Sunt doloribus quos non possimus id quas praesentium
+                quaerat, atque veniam facilis animi voluptatum odit vero.
+                Ratione, aspernatur. Suscipit, nostrum ea totam vero doloribus
+                tempora adipisci commodi obcaecati animi consequuntur ipsam a
+                incidunt ex, illo officia earum hic cupiditate eaque porro
+                quaerat mollitia architecto ab! Illum, repellat. Architecto,
+                enim facere temporibus quasi libero repellendus maxime incidunt
+                laborum distinctio, voluptatum facilis sapiente doloremque saepe
+                repudiandae dolor atque sunt totam a earum culpa! Saepe, omnis.
+              </p>
+            </div>
+            <h3>{{ item.name }}</h3>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -155,7 +216,35 @@ export default {
   name: "member",
   data() {
     return {
+      searchForm: "",
       alreadyRegister: ["CSS", "JAVA"],
+      projects: [
+        {
+          name: "Project 1",
+          img:
+            "https://images.unsplash.com/photo-1603531837441-9069e5e8d5c1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        },
+        {
+          name: "Project 2",
+          img:
+            "https://images.unsplash.com/photo-1604135745600-bc4e7e64e605?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        },
+        {
+          name: "Project 3",
+          img:
+            "https://images.unsplash.com/photo-1556103981-d323d306e001?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80",
+        },
+        {
+          name: "Project 4",
+          img:
+            "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+        },
+        {
+          name: "Project 5",
+          img:
+            "https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1352&q=80",
+        },
+      ],
       courses: [
         {
           name: "CSS",
@@ -228,8 +317,6 @@ export default {
       let scrollRight = document.querySelector(".iconLeft");
       let content = document.querySelector(".courses-content");
 
-      console.log(scrollRight);
-
       let scroll;
 
       scrollLeft.addEventListener("mouseover", () => {
@@ -269,17 +356,72 @@ export default {
       });
     },
     animateInit() {
-      let profile = document.querySelector(".member-content .header .card");
       let body = document.querySelector(".member-content");
-      console.log(profile);
 
       this.$gsap.timeline().fromTo(body, 2, { opacity: 0 }, { opacity: 1 });
+    },
+    setProject() {
+      let projectCard = document.querySelectorAll(".layout-project .card");
+      let projectDetails = document.querySelectorAll(
+        ".layout-project .card .details"
+      );
+      projectCard[0].classList.add("active");
+
+      projectCard.forEach((item, index) => {
+        item.addEventListener("click", () => {
+          projectCard.forEach((item) => {
+            item.classList.remove("active");
+          });
+          item.classList.add("active");
+          projectDetails[index].classList.add("active");
+        });
+      });
+    },
+    searchClick() {
+      let button = document.querySelector(".icon-search");
+      let search = document.querySelector(".search");
+      let input = document.querySelector(".search input");
+
+      button.addEventListener("click", () => {
+        search.classList.toggle("active");
+        input.focus();
+      });
+    },
+    searchCourses() {
+      let filter = this.courses.filter((item) => {
+        return item.name.toLowerCase().includes(this.searchForm);
+      });
+
+      return filter;
+    },
+    hoverDetails() {
+      let contentCard = document.querySelectorAll(".layout-project .card");
+      let contentDetails = document.querySelectorAll(
+        ".layout-project .card .details"
+      );
+
+      contentCard.forEach((item, index) => {
+        item.addEventListener("mouseover", () => {
+          if (item.classList.contains("active")) {
+            contentDetails[index].classList.add("active");
+          }
+        });
+        item.addEventListener("mouseout", () => {
+          contentDetails[index].classList.remove("active");
+        });
+      });
+    },
+    showMenu() {
+      document.querySelector("#navBar .menuBar").classList.toggle("active");
     },
   },
   mounted() {
     this.scrollLeftRight();
     this.animatePercent();
     this.animateInit();
+    this.setProject();
+    this.searchClick();
+    this.hoverDetails();
   },
 };
 </script>

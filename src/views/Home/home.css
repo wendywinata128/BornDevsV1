@@ -137,6 +137,8 @@
     hsla(186, 33%, 94%, 1) 0%,
     hsla(216, 41%, 79%, 1) 100%
   );
+  opacity: 0.1;
+  transition: opacity 0.7s ease-in;
 }
 
 .section .title-group {
@@ -194,6 +196,8 @@
   justify-content: center;
   position: relative;
   padding-right: 20px;
+  opacity: 0.1;
+  transition: opacity 0.7s ease-in;
 }
 
 .section-2 .title-group {
@@ -305,6 +309,10 @@
   align-items: flex-end;
 }
 
+.active {
+  opacity: 1;
+}
+
 .footer .content {
   height: 20vh;
   width: 100%;
@@ -333,4 +341,58 @@
 
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+@media (max-width: 800px) {
+  #content {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 10px;
+  }
+
+  .slogan-content h3 {
+    font-size: 42px !important;
+  }
+
+  .slogan-content .subtitle {
+    font-size: 16px !important;
+  }
+
+  .section,
+  .section-2 {
+    opacity: 1;
+  }
+
+  .section .content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .section .content .card-group {
+    margin: 10px 0px;
+  }
+
+  #content img {
+    width: 80%;
+    margin-top: 50px;
+  }
+
+  .member,
+  #navBar a,
+  .experience,
+  .scrollLeft,
+  .scrollRight {
+    display: none;
+  }
+
+  .slogan-content .title {
+    margin-top: 30px;
+  }
 }

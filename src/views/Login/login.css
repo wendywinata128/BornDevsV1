@@ -1,0 +1,70 @@
+#body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+#body #logo {
+  padding: 15px;
+}
+
+#body .container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 50px 20px;
+}
+
+.container .logo {
+  flex-basis: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  width: 100%;
+}
+
+.container .content {
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  min-height: 300px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input {
+  width: 80%;
+  height: 40px;
+}
+
+.form-group .hint {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  font-size: 18px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  width: 80%;
+  margin: 0 auto;
+}

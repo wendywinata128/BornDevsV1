@@ -22,9 +22,46 @@
 #navBar .menuBar {
   justify-self: end;
   padding: 10px;
+  position: relative;
 }
 
-#navBar .menuBar:hover {
+#navBar .hamburger:hover {
+  cursor: pointer;
+}
+
+#navBar .menuBar ul {
+  list-style: none;
+  width: 200px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  right: 100%;
+  top: 0;
+  z-index: 1;
+  visibility: hidden;
+}
+
+#navBar .menuBar.active ul {
+  visibility: visible;
+}
+
+#navBar .menuBar.active::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  z-index: 2;
+  margin-left: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.7);
+}
+
+.menuBar ul li {
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -34,16 +71,18 @@
   padding: 50px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   flex-direction: column;
 }
 
 .member-content .header {
   width: 90%;
-  height: 260px;
+  min-height: 260px;
   margin: 0 auto;
   margin-bottom: 30px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .member-content .header .card {
@@ -51,8 +90,10 @@
   height: 100%;
   display: flex;
   flex-grow: 1;
+  flex-basis: 50%;
   padding: 30px;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
 }
@@ -112,8 +153,9 @@
 .member-content .header .careers {
   display: flex;
   flex-grow: 1;
+  flex-basis: 300px;
   padding: 30px;
-  height: 100%;
+  height: 260px;
   flex-direction: column;
 }
 
@@ -235,6 +277,55 @@
   text-align: center;
   padding: 10px;
   background-color: pink;
+  position: relative;
+}
+
+.header-courses .search {
+  position: absolute;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-40%);
+}
+
+.header-courses .search input {
+  width: 40px;
+  height: 40px;
+  transition: 0.7s ease-in;
+}
+
+.header-courses .search .icon-search {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  background: white;
+  cursor: pointer;
+  transition: 0.7s ease-in;
+}
+
+.search.active input {
+  width: 200px;
+  border-right: none;
+}
+
+.search.active .form-control:focus,
+.search.active .form-control:active {
+  outline: 0;
+  box-shadow: none;
+  border-color: #dfdfdf;
+}
+
+.search.active .icon-search {
+  left: 100%;
+  background: white;
+  border-top: solid 1px #dfdfdf;
+  border-bottom: solid 1px #dfdfdf;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-right: solid 1px #dfdfdf;
 }
 
 .member-content .courses .courses-content {
@@ -264,7 +355,8 @@
   left: 0;
   z-index: 3;
   width: 4%;
-  height: 250px;
+  height: 300px;
+  top: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -288,7 +380,8 @@
   position: absolute;
   right: 0;
   width: 4%;
-  height: 250px;
+  height: 300px;
+  top: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -312,6 +405,7 @@
   width: 90%;
   margin: 0 auto;
   min-height: 300px;
+  margin-bottom: 70px;
 }
 
 .continue-courses .card {
@@ -380,4 +474,105 @@
 
 .item .btn {
   float: right;
+}
+
+.my-project {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.layout-project {
+  height: 80vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.layout-project .card {
+  height: 80vh;
+  background-size: cover;
+  flex: 0.5;
+  overflow-x: hidden;
+  cursor: pointer;
+  position: relative;
+  border-radius: 15px;
+  transition: flex 0.7s ease-in;
+}
+
+.layout-project .card h3 {
+  position: absolute;
+  color: white;
+  bottom: 40px;
+  left: 20px;
+  transform: translateX(-200%);
+  visibility: hidden;
+  transition: transform 0.7s ease-in;
+}
+
+.layout-project .card .details {
+  background: rgb(255, 255, 255, 0.7);
+  height: 100%;
+  padding: 30px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+
+.card .details.active {
+  transform: translateY(0);
+}
+
+.layout-project .card .details p {
+  text-align: justify;
+}
+
+.layout-project .card.active {
+  flex: 5;
+}
+
+.layout-project .card.active h3 {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+@media (max-width: 620px) {
+  .member-content {
+    padding: 10px;
+  }
+
+  .member-content .header .card {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .member-content,
+  .my-project,
+  .member-content .header,
+  .member-content .content-body,
+  .member-content .courses,
+  .member-content .continue-courses {
+    width: 100%;
+  }
+
+  .scrollLayout-left,
+  .scrollLayout-right {
+    visibility: hidden;
+  }
+
+  .member-content .my-project .card:nth-of-type(4),
+  .member-content .my-project .card:nth-of-type(5) {
+    display: none;
+  }
+
+  .search.active input {
+    width: 100px;
+  }
+
+  .search.active .icon-search {
+    left: 120px;
+  }
 }
