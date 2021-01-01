@@ -239,11 +239,10 @@ export default {
       let scrollRight = document.querySelector(".icon-left");
       let scrollTime;
 
-      console.log(scrollRight);
-
       scrollLeft.addEventListener("mouseover", () => {
+        console.log("asd");
         scrollTime = setInterval(() => {
-          content.scrollLeft += 1;
+          content.scrollLeft += 2;
         }, 1);
       });
 
@@ -252,7 +251,6 @@ export default {
       });
 
       scrollRight.addEventListener("mouseover", () => {
-        console.log("asd");
         scrollTime = setInterval(() => {
           content.scrollLeft -= 1;
         }, 1);

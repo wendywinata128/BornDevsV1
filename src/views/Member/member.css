@@ -25,6 +25,11 @@
   position: relative;
 }
 
+.card {
+  justify-content: center;
+  align-items: center;
+}
+
 #navBar .hamburger:hover {
   cursor: pointer;
 }
@@ -86,13 +91,11 @@
 }
 
 .member-content .header .card {
-  width: fit-content;
   height: 100%;
   display: flex;
-  flex-grow: 1;
-  flex-basis: 50%;
   padding: 30px;
   flex-direction: row;
+  margin: 0px 20px 0 0;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
@@ -151,12 +154,12 @@
 }
 
 .member-content .header .careers {
-  display: flex;
   flex-grow: 1;
-  flex-basis: 300px;
+  display: flex;
   padding: 30px;
   height: 260px;
   flex-direction: column;
+  margin-right: 0;
 }
 
 .careers h4 {
@@ -237,7 +240,7 @@
   margin-bottom: 70px;
 }
 
-.card {
+.content-body .card {
   height: 100%;
   flex-basis: 24%;
   display: flex;
@@ -290,7 +293,8 @@
 .header-courses .search input {
   width: 40px;
   height: 40px;
-  transition: 0.7s ease-in;
+  opacity: 0;
+  transition: 0.7s linear;
 }
 
 .header-courses .search .icon-search {
@@ -301,12 +305,13 @@
   width: 40px;
   height: 40px;
   padding: 5px;
-  background: white;
+  background: transparent;
   cursor: pointer;
-  transition: 0.7s ease-in;
+  transition: 0.3s linear;
 }
 
 .search.active input {
+  opacity: 1;
   width: 200px;
   border-right: none;
 }
